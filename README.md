@@ -47,6 +47,10 @@ for(x=1.9516;x<=2.6;x=x+0.05)
 }
 ```
 
+##Terms of Usage
+
+The code (except the numerical recipes snippets that were used and the Lua interface library code) can be freely reused. Feel free to include a reference to this code if you reuse it in your own project.
+
 ##Further Reading
 
 For more details on the simulation software, please check out my MSc thesis in Physics at http://www.andreas-dewes.de/en/publications/
