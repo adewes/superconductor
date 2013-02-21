@@ -1,5 +1,5 @@
-Superconduct
-============
+Superconductor
+==============
 
 A simulation tool for superconducting circuits.
 
