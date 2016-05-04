@@ -1,4 +1,7 @@
 #include"interpret_class.h"
+#include <cstring>
+#include <cstdlib>
+using namespace std;
 
 int interrupt=0;
 interpreter *i;
@@ -361,7 +364,12 @@ variable sleep(opts o,interpreter *i)
 #ifdef FLUX_WINDOWS
                 Sleep(t*1000);
 #else
-        sleep(t);
+    {
+        timespec tv,ttv;
+        tv.tv_sec=0;
+        tv.tv_nsec=t*1e9;
+        nanosleep(&tv,&ttv);
+    }
 #endif
     return v;   
 }
@@ -419,7 +427,7 @@ variable exit(opts o,interpreter *i)
 #ifdef FLUX_WINDOWS
     ExitProcess(0);
 #else
-    exit(0);
+    std::exit(0);
 #endif
 	return v;
 }
@@ -441,7 +449,10 @@ variable example(opts o,interpreter *i)
 #ifdef FLUX_WINDOWS
     Sleep(1);
 #else
-    sleep(1);
+    timespec t,tt;
+    t.tv_sec=1;
+    t.tv_nsec=0;
+    nanosleep(&t,&tt);
 #endif
     cout << "ZZZ...\n";
     }
@@ -552,7 +563,6 @@ void interpreter::init_vars()
     var_length=0;
     signal(SIGINT,handler);
 }
-
 variable interpreter::copy_variable(variable a)
 {
    variable v=init_variable();
@@ -567,7 +577,7 @@ variable interpreter::copy_variable(variable a)
 	    if (v.name==NULL)
 	    {
 		    cerr << "Error: Cannot allocate memory!\n";
-		    exit(0);
+		    std::exit(0);
 	    }
     	    strcpy(v.name,a.name);
     }
@@ -2392,7 +2402,7 @@ variable interpreter::eval(func_d f,opts o)
 	timespec t,tt;
 	t.tv_sec=0;
 	t.tv_nsec=100000;
-	    nanosleep(&t,&tt);
+    nanosleep(&t,&tt);
 #endif    
 	    if (::interrupt==1)
 		{
@@ -2984,7 +2994,7 @@ void handler(int sig)
 #ifdef FLUX_WINDOWS
         ExitProcess(0);
 #else
-        exit(0);
+        std::exit(0);
 #endif
 	}
 	cout << "\n[Interrupt: Suspending all processes...]\n";

@@ -9,6 +9,26 @@ As a part of my diploma thesis (http://www.andreas-dewes.de/en/publications), I 
 * Providing an open source alternative to other simulation packages available for the simulation of superconducting circuits (see e.g. [PSS91], [PSK+97] or [Whi91])
 * Remedying the limitations of certain other simulation packages for circuit simulations (e.g. restriction of the maximum number of elements connected to a single node)
  
+## Building It
+
+To build it under Windows, use the Visual Studio project file in the `circuit` directory.
+
+To build it under Linux, simply use g++ (sorry for the code quality, this is from my Academic work :D):
+
+```
+g++ -w *.cpp cline/sample.cpp -lpthread -DCIRCUIT_SIM=1 -o csim
+```
+
+## Running a Simulation
+
+To run a script, invoke the `csim` binary like this:
+
+```
+csim -f scripts/dc_squid.ini
+```
+
+This should start the simulation of a DC squid and store the results in a subfolder of the `data` directory (make sure that this exists). Make sure to install `gnuplot` if you want the plotting commands to perform properly.
+ 
 ##Overview
 
 The software comes with a custom-built scripting language that allows the user to control all aspects of the circuit simulation and generation of data.
