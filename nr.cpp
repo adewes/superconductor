@@ -841,7 +841,7 @@ void gauss_elimination(double **a,int n)
 	//Three steps, carried out for each row: 
 	//1: We find the pivot element in each row. We swap the columns, such that the pivot element is at the right place.
 	//2: We divide the row by the pivot element.
-	//3: We substract a multiple of the row from all other rows, such that all elements in the pivot columns become zero (besides the pivot element itself)
+	//3: We subtract a multiple of the row from all other rows, such that all elements in the pivot columns become zero (besides the pivot element itself)
 	swaps=0;
 	for(i=1;i<=n;i++)
 		{
@@ -907,7 +907,7 @@ void full_gauss_elimination(double **a,double **b,int n)
 	//Three steps, carried out for each row: 
 	//1: We find the pivot element in each row. We swap the columns, such that the pivot element is at the right place.
 	//2: We divide the row by the pivot element.
-	//3: We substract a multiple of the row from all other rows, such that all elements in the pivot columns become zero (besides the pivot element itself)
+	//3: We subtract a multiple of the row from all other rows, such that all elements in the pivot columns become zero (besides the pivot element itself)
 	swaps=0;
 	for(i=1;i<=n;i++)
 		{

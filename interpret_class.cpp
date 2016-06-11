@@ -1648,7 +1648,7 @@ variable interpreter::mul_double(variable a,variable b)
 }
 
 
-//This substracts two integer variables
+//This subtracts two integer variables
 variable interpreter::sub_int(variable a,variable b)
 {
     int ia,ib;
@@ -1658,7 +1658,7 @@ variable interpreter::sub_int(variable a,variable b)
     return int_variable(ia-ib);
 }
 
-//This substracts two double variables
+//This subtracts two double variables
 variable interpreter::sub_double(variable a,variable b)
 {
     double da,db;

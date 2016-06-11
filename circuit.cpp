@@ -1200,7 +1200,7 @@ int new_mesh(void)
 	return c.n_meshes-1;	
 }
 
-//Finds the corresponding node for an element number (postive for first connection, negative for second)
+//Finds the corresponding node for an element number (positive for first connection, negative for second)
 int find_element_node(int N)
 {
 	for(int x=0;x<c.n_nodes;x++)
