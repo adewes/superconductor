@@ -29,7 +29,7 @@ csim -f scripts/dc_squid.ini
 
 This should start the simulation of a DC squid and store the results in a subfolder of the `data` directory (make sure that this exists). Make sure to install `gnuplot` if you want the plotting commands to perform properly.
  
-##Overview
+## Overview
 
 The software comes with a custom-built scripting language that allows the user to control all aspects of the circuit simulation and generation of data.
 
@@ -37,7 +37,7 @@ After describing the circuit topology using the scripting language, the software
 The solution of this set of equations is done by using a modified biconjugate gradient descent method which linearizes the circuit around the current solution and calculates the state of it after a given time increment \Delta t to a chosen numerical precision. 
 The main advantage of this method is that it requires only multiplication of sparse matrices (which can be implemented efficiently) and not the LU decomposition of the circuit matrix, which is computationally much more expensive.
 
-##Example
+## Example
 
 The following script illustrates the generation of an IV curve for a superconducting DC SQUID circuit:
 
@@ -67,15 +67,15 @@ for(x=1.9516;x<=2.6;x=x+0.05)
 }
 ```
 
-##Terms of Usage
+## Terms of Usage
 
 The code (except the numerical recipes snippets that were used and the Lua interface library code) can be freely reused. Feel free to include a reference to this code if you reuse it in your own project.
 
-##Further Reading
+## Further Reading
 
 For more details on the simulation software, please check out my MSc thesis in Physics at http://www.andreas-dewes.de/en/publications/
 
-##References
+## References
 
 * [PSS91] S. Polonsky, V. Semenov, and P. Shevchenko. Pscan: personal superconductor circuit analyser. Supercond. Sci. Technol., 4:667–670, 1991.
 * [PSK+97] S. Polonsky, S. Shevchenko, P. Kirichenko, et al. Pscan’96: new software for simulation and optimization of complex rsfq circuits. IEEE Trans. Appl. Supercond., 7(2):2685–2689, 1997.
